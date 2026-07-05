@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitHome - Olahraga Tanpa Alat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #14213D;
+            --text-main: #E5E5E5;
+            --accent: #FCA311;
+            --card-bg: #1c2e55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--bg-main);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Mascot Container */
+        .mascot-container {
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        .mascot {
+            font-size: 5rem;
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flex-anim {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .quote-box {
+            background-color: var(--card-bg);
+            padding: 15px 25px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+            font-style: italic;
+            border: 2px solid var(--accent);
+            max-width: 80%;
+        }
+
+        /* Section Global */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Grid Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Steps */
+        .step-circle {
+            background-color: var(--accent);
+            color: var(--bg-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto 15px;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background-color: var(--accent);
+            color: var(--bg-main);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            color: var(--bg-main);
+        }
+        
+        .footer-cta .btn {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Mulai Bentuk Badan Idealmu, Tanpa Alat!</h1>
+        <p>Perencana latihan rumahan yang didesain khusus untuk jadwalmu. Capai target kebugaranmu hanya dari kamar.</p>
+        
+        <div class="mascot-container" onclick="triggerMascot()">
+            <div class="mascot" id="mascotIcon">🦍💪</div>
+            <div class="quote-box">
+                <span id="coachQuote">"Keringat hari ini, kekuatan esok hari! Gas!"</span>
+            </div>
+        </div>
+        
+        <br><br>
+        <button class="btn" onclick="alert('Fitur Onboarding akan segera hadir!')">Mulai Sekarang</button>
+    </div>
+
+    <!-- Fitur Unggulan -->
+    <section>
+        <h2>Fitur Unggulan FitHome</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Program Custom</h3>
+                <p>Susun rutinitas mingguan dari library gerakan bodyweight sesuai levelmu.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Pelacak Progres</h3>
+                <p>Lihat tren kekuatanmu dan calendar streak agar tetap konsisten.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⏰</div>
+                <h3>Reminder Jadwal</h3>
+                <p>Notifikasi pengingat otomatis supaya kamu tidak bolos latihan.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔥</div>
+                <h3>Coach Motivasi</h3>
+                <p>Ditemani maskot asik yang siap ngasih suntikan semangat tiap hari.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Kerja -->
+    <section>
+        <h2>Cara Kerja Gampang Banget</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="step-circle">1</div>
+                <h3>Pilih Level & Tujuan</h3>
+                <p>Tentukan kamu pemula, menengah, atau mahir, dan apa target utamamu.</p>
+            </div>
+            <div class="card">
+                <div class="step-circle">2</div>
+                <h3>Ikuti Program</h3>
+                <p>Gunakan checklist interaktif dan timer otomatis saat sesi latihan berjalan.</p>
+            </div>
+            <div class="card">
+                <div class="step-circle">3</div>
+                <h3>Pantau Hasil</h3>
+                <p>Catat reps, sets, durasi, dan saksikan perkembangan ototmu di grafik!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+        <h2>Siap Merubah Kebiasaanmu?</h2>
+        <p style="margin-bottom: 20px;">Gabung sekarang dan jadikan rumahmu sebagai tempat latihan terbaik.</p>
+        <button class="btn" onclick="alert('Membuka halaman pendaftaran...')">Mulai Gratis Sekarang</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const quotes = [
+            "Ayo gerak! Rebahan nggak bikin otot jadi gede!",
+            "Satu rep lagi! Lu pasti bisa ngelewatin batas!",
+            "Konsisten itu kunci, bro! Jangan kasih kendor!",
+            "Otot dibentuk di rumah, dipamerin di luar. Gas!",
+            "Rasa sakit hari ini adalah kemenangan besok!"
+        ];
+
+        let quoteIndex = 0;
+        const mascot = document.getElementById('mascotIcon');
+        const quoteText = document.getElementById('coachQuote');
+
+        // Fungsi untuk mengganti quote dan animasi flex
+        function triggerMascot() {
+            // Animasi
+            mascot.classList.add('flex-anim');
+            setTimeout(() => {
+                mascot.classList.remove('flex-anim');
+            }, 300);
+
+            // Ganti teks
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            quoteText.style.opacity = 0;
+            
+            setTimeout(() => {
+                quoteText.innerText = `"${quotes[quoteIndex]}"`;
+                quoteText.style.opacity = 1;
+            }, 200);
+        }
+
+        // Otomatis ganti quote setiap 5 detik
+        setInterval(triggerMascot, 5000);
+    </script>
+</body>
+</html>
