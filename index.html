@@ -11,270 +11,230 @@
             --text-main: #E5E5E5;
             --accent: #FCA311;
             --card-bg: #1c2e55;
+            --success: #2a9d8f;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-main);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; color: var(--text-main); }
 
         .btn {
-            background-color: var(--accent);
-            color: var(--bg-main);
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
+            background-color: var(--accent); color: var(--bg-main); padding: 12px 24px;
+            border: none; border-radius: 25px; font-weight: bold; font-size: 1rem;
+            cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none; display: inline-block;
         }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4); }
+        .btn-secondary { background-color: transparent; color: var(--text-main); border: 2px solid var(--text-main); margin-left: 10px; }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        .logo { font-family: 'Poppins', sans-serif; font-size: 1.5rem; font-weight: bold; color: var(--accent); cursor: pointer; }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 20px 40px;
-        }
+        .page { display: none; }
+        .active-page { display: block; }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
+        .hero { text-align: center; padding: 60px 20px 40px; }
+        .hero h1 { font-size: 2.3rem; margin-bottom: 15px; color: var(--accent); }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .mascot-container { margin: 20px auto; cursor: pointer; }
+        .mascot { font-size: 5rem; display: inline-block; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .flex-anim { transform: scale(1.2) rotate(-10deg); }
+        .quote-box { background-color: var(--card-bg); padding: 15px 25px; border-radius: 20px; display: inline-block; margin-top: 15px; font-style: italic; border: 2px solid var(--accent); max-width: 80%; }
 
-        /* Mascot Container */
-        .mascot-container {
-            margin: 20px auto;
-            cursor: pointer;
-        }
+        section { padding: 40px 20px; text-align: center; }
+        section h2 { font-size: 1.8rem; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .card { background-color: var(--card-bg); padding: 30px 20px; border-radius: 15px; transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .step-circle { background-color: var(--accent); color: var(--bg-main); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin: 0 auto 15px; }
 
-        .mascot {
-            font-size: 5rem;
-            display: inline-block;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        .form-container { max-width: 500px; margin: 40px auto; background-color: var(--card-bg); padding: 30px; border-radius: 20px; text-align: left; border: 1px solid rgba(255,255,255,0.1); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 10px; color: var(--accent); }
+        select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--text-main); background-color: var(--bg-main); color: var(--text-main); font-size: 1rem; }
+        .checkbox-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .checkbox-label { background-color: var(--bg-main); padding: 10px; border-radius: 8px; text-align: center; cursor: pointer; border: 1px solid transparent; }
+        .checkbox-label input { display: none; }
+        .checkbox-label:has(input:checked) { border-color: var(--accent); background-color: rgba(252, 163, 17, 0.1); }
 
-        .flex-anim {
-            transform: scale(1.2) rotate(-10deg);
-        }
-
-        .quote-box {
-            background-color: var(--card-bg);
-            padding: 15px 25px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 15px;
-            font-style: italic;
-            border: 2px solid var(--accent);
-            max-width: 80%;
-        }
-
-        /* Section Global */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        /* Grid Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 30px 20px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* Steps */
-        .step-circle {
-            background-color: var(--accent);
-            color: var(--bg-main);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 0 auto 15px;
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            background-color: var(--accent);
-            color: var(--bg-main);
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .footer-cta h2 {
-            color: var(--bg-main);
-        }
-        
-        .footer-cta .btn {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-        }
+        .workspace { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .workout-item { background-color: var(--card-bg); padding: 20px; border-radius: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; text-align: left; }
+        .workout-item.done { border-left: 5px solid var(--success); opacity: 0.7; }
+        .timer-box { font-size: 3rem; font-family: 'Poppins', sans-serif; color: var(--accent); margin: 20px 0; text-align: center; }
+        .footer-cta { background-color: var(--accent); color: var(--bg-main); padding: 50px 20px; text-align: center; margin-top: 40px; }
+        .footer-cta h2 { color: var(--bg-main); }
+        .footer-cta .btn { background-color: var(--bg-main); color: var(--text-main); }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Mulai Bentuk Badan Idealmu, Tanpa Alat!</h1>
-        <p>Perencana latihan rumahan yang didesain khusus untuk jadwalmu. Capai target kebugaranmu hanya dari kamar.</p>
-        
-        <div class="mascot-container" onclick="triggerMascot()">
-            <div class="mascot" id="mascotIcon">🦍💪</div>
-            <div class="quote-box">
-                <span id="coachQuote">"Keringat hari ini, kekuatan esok hari! Gas!"</span>
+    <nav>
+        <div class="logo" onclick="showPage('landingPage')">🏠 FitHome</div>
+        <div id="navStatus" style="font-size: 0.9rem; color: var(--accent);">Mode Guest</div>
+    </nav>
+
+    <!-- 1. LANDING PAGE -->
+    <div id="landingPage" class="page active-page">
+        <div class="hero">
+            <h1>Mulai Bentuk Badan Idealmu, Tanpa Alat!</h1>
+            <p>Perencana latihan rumahan yang didesain khusus untuk jadwalmu. Capai target kebugaranmu hanya dari kamar.</p>
+            
+            <div class="mascot-container" onclick="triggerMascot()">
+                <div class="mascot" id="mascotIcon">🦍💪</div>
+                <div class="quote-box">
+                    <span id="coachQuote">"Keringat hari ini, kekuatan esok hari! Gas!"</span>
+                </div>
             </div>
+            
+            <br><br>
+            <button class="btn" onclick="showPage('onboardingPage')">Mulai Sekarang</button>
         </div>
-        
-        <br><br>
-        <button class="btn" onclick="alert('Fitur Onboarding akan segera hadir!')">Mulai Sekarang</button>
+
+        <section>
+            <h2>Fitur Utama FitHome</h2>
+            <div class="grid">
+                <div class="card"><div class="card-icon">⚙️</div><h3>Program Custom</h3><p>Susun rutinitas mingguan dari library gerakan bodyweight sesuai levelmu.</p></div>
+                <div class="card"><div class="card-icon">📈</div><h3>Pelacak Progres</h3><p>Lihat tren kekuatanmu dan calendar streak agar tetap konsisten.</p></div>
+                <div class="card"><div class="card-icon">⏰</div><h3>Reminder Jadwal</h3><p>Notifikasi pengingat otomatis supaya kamu tidak bolos latihan.</p></div>
+                <div class="card"><div class="card-icon">🔥</div><h3>Coach Motivasi</h3><p>Ditemani maskot asik yang siap ngasih suntikan semangat tiap hari.</p></div>
+            </div>
+        </section>
+
+        <div class="footer-cta">
+            <h2>Siap Merubah Kebiasaanmu?</h2>
+            <button class="btn" onclick="showPage('onboardingPage')">Mulai Gratis Sekarang</button>
+        </div>
     </div>
 
-    <!-- Fitur Unggulan -->
-    <section>
-        <h2>Fitur Unggulan FitHome</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">⚙️</div>
-                <h3>Program Custom</h3>
-                <p>Susun rutinitas mingguan dari library gerakan bodyweight sesuai levelmu.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">📈</div>
-                <h3>Pelacak Progres</h3>
-                <p>Lihat tren kekuatanmu dan calendar streak agar tetap konsisten.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">⏰</div>
-                <h3>Reminder Jadwal</h3>
-                <p>Notifikasi pengingat otomatis supaya kamu tidak bolos latihan.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🔥</div>
-                <h3>Coach Motivasi</h3>
-                <p>Ditemani maskot asik yang siap ngasih suntikan semangat tiap hari.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cara Kerja -->
-    <section>
-        <h2>Cara Kerja Gampang Banget</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="step-circle">1</div>
-                <h3>Pilih Level & Tujuan</h3>
-                <p>Tentukan kamu pemula, menengah, atau mahir, dan apa target utamamu.</p>
-            </div>
-            <div class="card">
-                <div class="step-circle">2</div>
-                <h3>Ikuti Program</h3>
-                <p>Gunakan checklist interaktif dan timer otomatis saat sesi latihan berjalan.</p>
-            </div>
-            <div class="card">
-                <div class="step-circle">3</div>
-                <h3>Pantau Hasil</h3>
-                <p>Catat reps, sets, durasi, dan saksikan perkembangan ototmu di grafik!</p>
+    <!-- 2. ONBOARDING PAGE -->
+    <div id="onboardingPage" class="page">
+        <div class="workspace">
+            <h2 style="text-align: center; color: var(--accent);">Atur Profil Latihanmu</h2>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Pilih Level Kamu:</label>
+                    <select id="userLevel">
+                        <option value="Pemula">Pemula (Baru mulai / adaptasi)</option>
+                        <option value="Menengah">Menengah (Bisa 10+ push up)</option>
+                        <option value="Mahir">Mahir (Menguasai gerakan berat)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tujuan Utama:</label>
+                    <select id="userGoal">
+                        <option value="Kekuatan">Meningkatkan Kekuatan</option>
+                        <option value="Tonus Otot">Membentuk Tonus Otot</option>
+                        <option value="Endurance">Meningkatkan Endurance (Stamina)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Hari Latihan yang Tersedia:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Senin">Senin</label>
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Selasa">Selasa</label>
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Rabu">Rabu</label>
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Kamis">Kamis</label>
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Jumat">Jumat</label>
+                        <label class="checkbox-label"><input type="checkbox" name="days" value="Sabtu">Sabtu</label>
+                    </div>
+                </div>
+                <button class="btn" style="width: 100%;" onclick="generateProgram()">Generate Program Mingguan 🔥</button>
             </div>
         </div>
-    </section>
-
-    <!-- Footer CTA -->
-    <div class="footer-cta">
-        <h2>Siap Merubah Kebiasaanmu?</h2>
-        <p style="margin-bottom: 20px;">Gabung sekarang dan jadikan rumahmu sebagai tempat latihan terbaik.</p>
-        <button class="btn" onclick="alert('Membuka halaman pendaftaran...')">Mulai Gratis Sekarang</button>
     </div>
 
-    <!-- JavaScript -->
+    <!-- 3. DASHBOARD PAGE -->
+    <div id="dashboardPage" class="page">
+        <div class="workspace">
+            <h2 id="routineTitle" style="color: var(--accent); margin-bottom: 10px;">Program Latihan Kamu</h2>
+            <p id="routineSub" style="margin-bottom: 30px; opacity: 0.8;"></p>
+
+            <div class="card" style="margin-bottom: 30px; text-align: center;">
+                <h3>⏱️ Timer Sesi / Istirahat</h3>
+                <div class="timer-box" id="timerDisplay">00:45</div>
+                <button class="btn" id="timerBtn" onclick="toggleTimer()">Mulai Timer istirahat</button>
+            </div>
+
+            <h3>Daftar Gerakan Hari Ini:</h3>
+            <div id="workoutList" style="margin-top: 15px;"></div>
+            <br>
+            <button class="btn btn-secondary" onclick="showPage('landingPage')" style="margin-left: 0;">Kembali ke Home</button>
+            <button class="btn" onclick="alert('Log Berhasil disimpan ke Riwayat!')" style="float: right;">Selesaikan Sesi & Catat Log 📈</button>
+        </div>
+    </div>
+
     <script>
-        const quotes = [
-            "Ayo gerak! Rebahan nggak bikin otot jadi gede!",
-            "Satu rep lagi! Lu pasti bisa ngelewatin batas!",
-            "Konsisten itu kunci, bro! Jangan kasih kendor!",
-            "Otot dibentuk di rumah, dipamerin di luar. Gas!",
-            "Rasa sakit hari ini adalah kemenangan besok!"
-        ];
-
+        const quotes = ["Ayo gerak! Rebahan nggak bikin otot jadi gede!", "Satu rep lagi! Lu pasti bisa ngelewatin batas!", "Konsisten itu kunci, bro! Jangan kasih kendor!", "Otot dibentuk di rumah, dipamerin di luar. Gas!", "Rasa sakit hari ini adalah kemenangan besok!"];
         let quoteIndex = 0;
         const mascot = document.getElementById('mascotIcon');
         const quoteText = document.getElementById('coachQuote');
 
-        // Fungsi untuk mengganti quote dan animasi flex
         function triggerMascot() {
-            // Animasi
             mascot.classList.add('flex-anim');
-            setTimeout(() => {
-                mascot.classList.remove('flex-anim');
-            }, 300);
-
-            // Ganti teks
+            setTimeout(() => mascot.classList.remove('flex-anim'), 300);
             quoteIndex = (quoteIndex + 1) % quotes.length;
             quoteText.style.opacity = 0;
-            
-            setTimeout(() => {
-                quoteText.innerText = `"${quotes[quoteIndex]}"`;
-                quoteText.style.opacity = 1;
-            }, 200);
+            setTimeout(() => { quoteText.innerText = `"${quotes[quoteIndex]}"`; quoteText.style.opacity = 1; }, 200);
+        }
+        setInterval(triggerMascot, 6000);
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+            document.getElementById(pageId).classList.add('active-page');
+            window.scrollTo(0,0);
         }
 
-        // Otomatis ganti quote setiap 5 detik
-        setInterval(triggerMascot, 5000);
+        function generateProgram() {
+            const level = document.getElementById('userLevel').value;
+            const goal = document.getElementById('userGoal').value;
+            const checkedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(el => el.value);
+
+            if(checkedDays.length === 0) { alert('Silakan pilih minimal 1 hari latihan tersedia!'); return; }
+            document.getElementById('navStatus').innerText = `📋 Pro: ${level} | ${goal}`;
+            document.getElementById('routineTitle').innerText = `Rencana Mingguan: Target ${goal}`;
+            document.getElementById('routineSub').innerText = `Level: ${level} | Jadwal: ${checkedDays.join(', ')}`;
+
+            let moves = [];
+            if(level === "Pemula") {
+                moves = [{ name: "Incline Push Up", detail: "3 Sets x 10 Reps (Tumpuan di kasur/meja)" }, { name: "Bodyweight Squat", detail: "3 Sets x 12 Reps" }, { name: "Plank Hold", detail: "3 Sets x 20 Detik" }];
+            } else if(level === "Menengah") {
+                moves = [{ name: "Standard Push Up", detail: "4 Sets x 12 Reps" }, { name: "Jump Squat", detail: "4 Sets x 10 Reps" }, { name: "Command Plank", detail: "3 Sets x 30 Detik" }];
+            } else {
+                moves = [{ name: "Decline Push Up", detail: "4 Sets x 15 Reps" }, { name: "Pistol Squat", detail: "3 Sets x 8 Reps" }, { name: "Plank Hold", detail: "4 Sets x 60 Detik" }];
+            }
+
+            const container = document.getElementById('workoutList');
+            container.innerHTML = "";
+            moves.forEach((move, index) => {
+                container.innerHTML += `
+                    <div class="workout-item" id="item-${index}">
+                        <div><strong>${move.name}</strong><br><span style="font-size:0.85rem; opacity:0.8;">${move.detail}</span></div>
+                        <input type="checkbox" style="width:22px; height:22px; cursor:pointer;" onclick="toggleWorkoutDone(${index})">
+                    </div>`;
+            });
+            showPage('dashboardPage');
+        }
+
+        function toggleWorkoutDone(index) { document.getElementById(`item-${index}`).classList.toggle('done'); }
+
+        let timer; let timeLeft = 45; let isRunning = false;
+        function toggleTimer() {
+            const btn = document.getElementById('timerBtn');
+            if(isRunning) { clearInterval(timer); btn.innerText = "Lanjutkan Timer"; isRunning = false; }
+            else {
+                isRunning = true; btn.innerText = "Jeda (Pause)";
+                timer = setInterval(() => {
+                    timeLeft--;
+                    let mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+                    let secs = (timeLeft % 60).toString().padStart(2, '0');
+                    document.getElementById('timerDisplay').innerText = `${mins}:${secs}`;
+                    if(timeLeft <= 0) { clearInterval(timer); document.getElementById('timerDisplay').innerText = "00:45"; timeLeft = 45; isRunning = false; btn.innerText = "Mulai Timer istirahat"; alert("Waktu istirahat selesai! 🔥"); }
+                }, 1000);
+            }
+        }
     </script>
 </body>
 </html>
+A
